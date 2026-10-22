@@ -1,0 +1,1 @@
+ALTER TABLE `seller_product_overrides` MODIFY COLUMN `imageUri` mediumtext;

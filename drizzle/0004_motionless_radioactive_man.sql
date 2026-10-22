@@ -1,0 +1,1 @@
+ALTER TABLE `seller_product_overrides` ADD `isDeleted` boolean DEFAULT false NOT NULL;
