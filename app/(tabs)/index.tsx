@@ -2,7 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useFocusEffect, useRouter } from "expo-router";
 import { useCallback, useState } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import { Banner, CategoryRail, ProductCard, SearchHeader, SectionTitle, colors } from "@/components/marketplace";
+import { Banner, ProductCard, SearchHeader, SectionTitle, colors } from "@/components/marketplace";
 import { ScreenContainer } from "@/components/screen-container";
 import { useSyncedProducts } from "@/hooks/use-synced-products";
 
@@ -15,8 +15,6 @@ export default function HomeScreen() {
   const products = useSyncedProducts(refreshKey);
   return <ScreenContainer edges={["top"]} style={{ backgroundColor: colors.canvas }}><SearchHeader onSubmit={() => router.push("/search")} /><ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.content}>
     <Banner />
-    <SectionTitle title="Explore por categoria" action="Ver todas" />
-    <CategoryRail />
     <View style={styles.quickRow}><View><Text style={styles.eyebrow}>SELEÇÃO MERCADOSPOT</Text><Text style={styles.heroTitle}>Achados para deixar seu dia melhor.</Text></View><Ionicons name="sparkles" size={27} color={colors.yellow} /></View>
     <SectionTitle title="Mais vendidos" action="Ver tudo" onPress={() => router.push("/search")} /><View style={styles.grid}>{products.slice(0, 4).map((product) => <ProductCard key={product.id} product={product} />)}</View>
     <SectionTitle title="Para você" action="Ver tudo" /><View style={styles.grid}>{products.slice(4).map((product) => <ProductCard key={product.id} product={product} />)}</View>
